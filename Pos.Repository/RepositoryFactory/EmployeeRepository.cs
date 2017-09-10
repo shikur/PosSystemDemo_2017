@@ -6,15 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pos.Repository
+namespace Pos.Repository.RepositoryFactory
 {
-   public class EmployeeRepository : Repository<Employees>
+    public class EmployeeRepository : Repository<Employees>
     {
         private DbContext _context;
-        public EmployeeRepository(DbContext context)
-            : base(context)
+        public EmployeeRepository(DbContext context) : base(context)
         {
             _context = context;
+        }
+
+        public IList<Employees> GetEmployees()
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandText = "exec [dbo].[spu_GetEmployees]";
+
+                return this.ToList(command).ToList();
+            }
         }
 
         public Employees LoginEmployee(string id, string password)
@@ -42,6 +51,19 @@ namespace Pos.Repository
                 command.Parameters.Add(command.CreateParameter("@pEmai", email));
 
                 return this.ToList(command).FirstOrDefault();
+            }
+        }
+
+        public IList<Employees> GetEmployeeByID(int id)
+        {
+            using (var command = _context.CreateCommand())
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add(command.CreateParameter("@Emp_ID", id));
+
+                command.CommandText = "exec [dbo].[Spu_GetEmployee]";
+
+                return this.ToList(command).ToList();
             }
         }
     }

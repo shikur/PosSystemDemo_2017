@@ -18,6 +18,13 @@ textarea {
     max-width: 280px;
 }
 
+@font-face {
+font-family: EntezareZohoo3;
+src : url('fonts/Galeries.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {

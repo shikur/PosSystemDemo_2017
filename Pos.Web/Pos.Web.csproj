@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="PosMenu\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
@@ -120,8 +121,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="RequestHandlers\EmployeeService.svc" />
+    <Content Include="RequestHandlers\ItemService.svc" />
+    <Content Include="RequestHandlers\PosMenuService.svc" />
     <Content Include="Scripts\Contributing.md" />
     <Content Include="Scripts\ISSUE_TEMPLATE.md" />
+    <Content Include="fonts\Galeries.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Index.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -132,6 +137,9 @@
     <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\license.txt" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\PosJs\PosLayoutjs.js" />
+    <Content Include="Scripts\PosJs\PosMenujs.js" />
+    <Content Include="Scripts\PosJs\tblMenuSearchjs.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -160,6 +168,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Service2.svc" />
+    <Content Include="Services\EmployeeService.svc" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -210,9 +219,22 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RequestHandlers\EmployeeService.svc.cs">
+      <DependentUpon>EmployeeService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\PosJs\tblReceiptjs.js" />
+    <Compile Include="RequestHandlers\ItemService.svc.cs">
+      <DependentUpon>ItemService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="RequestHandlers\PosMenuService.svc.cs">
+      <DependentUpon>PosMenuService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Service2.svc.cs">
       <DependentUpon>Service2.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Services\EmployeeService.svc.cs">
+      <DependentUpon>EmployeeService.svc</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -243,6 +265,10 @@
     <ProjectReference Include="..\Pos.Models\Pos.Models.csproj">
       <Project>{FB7698AB-9121-49A9-AB14-40BB911973C9}</Project>
       <Name>Pos.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pos.PosBusinessProcessor\Pos.PosBusinessProcessor.csproj">
+      <Project>{DC3EEA45-72C5-4C98-AA94-C33AFEEF067C}</Project>
+      <Name>Pos.PosBusinessProcessor</Name>
     </ProjectReference>
     <ProjectReference Include="..\Pos.Repository\Pos.Repository.csproj">
       <Project>{DA635000-E36A-4C43-8B77-D89E1BCD873B}</Project>

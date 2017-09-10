@@ -10,7 +10,7 @@ using Pos.Repository;
 
 namespace Pos.AppServices
 {
-    [ServiceContract]
+    
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class ItemService : IItemService 
     {

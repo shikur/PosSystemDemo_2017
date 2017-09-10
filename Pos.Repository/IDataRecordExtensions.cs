@@ -27,8 +27,6 @@ namespace Pos.Repository
                 {
                     if (record.HasColumn(property.Name) && !record.IsDBNull(record.GetOrdinal(property.Name)))
                         property.SetValue(objT, record[property.Name]);
-
-
                 }
                 return objT;
             }

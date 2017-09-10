@@ -5,7 +5,7 @@ using System.ServiceModel.Web;
 
 namespace Pos.AppServices
 {
-    [ServiceContract]
+   [ServiceContract]
    public interface IItemService
     {
         

@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Pos.Models;
 using Pos.Repository;
 using Pos.Repository.RepositoryFactory;
 using System;
@@ -11,27 +10,27 @@ using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
 using System.Text;
 
-namespace Pos.Web
+namespace Pos.Web.Services
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "")]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class Service2
+    public class EmployeeService
     {
         private IConnectionFactory connectionFactory;
 
         [OperationContract]
-        public string GetItems()
+        public string GetEmployee(int id)
         {
             connectionFactory = ConnectionHelper.GetConnection();
 
             var context = new DbContext(connectionFactory);
 
-            var itemRep = new ItemRepository(context);
-            string k = JsonConvert.SerializeObject(itemRep.GetItems());
+            var EmployeeRep = new EmployeeRepository(context);
+            string k = JsonConvert.SerializeObject(EmployeeRep.GetEmployeeByID(id));
 
             return k;
         }
 
-        // Add more operations here and mark thCem with [OperationContract]
+        // Add more operations here and mark them with [OperationContract]
     }
 }

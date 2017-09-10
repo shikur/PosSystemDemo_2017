@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pos.Repository
+namespace Pos.Repository.RepositoryFactory
 {
-    
-
     public class ItemRepository : Repository<Item>
 {
         private DbContext _context;
@@ -35,7 +33,7 @@ namespace Pos.Repository
             using (var command = _context.CreateCommand())
             {
                 command.CommandType = CommandType.StoredProcedure;
-                command.CommandText = "uspSignUp";
+                command.CommandText = "spu_AddUpdateItem";
 
                 command.Parameters.Add(command.CreateParameter("@Parameter1", 1)) ;
                 command.Parameters.Add(command.CreateParameter("@pLastName", item.Items_ID));

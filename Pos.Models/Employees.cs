@@ -15,7 +15,7 @@ namespace Pos.Models
         public string Address { get; set; }
         public bool Pay_Type { get; set; }
         public string Password { get; set; }
-        public string Store_ID { get; set; }
+        public int Store_ID { get; set; }
         public DateTime Date_Start { get; set; }
         public DateTime Date_END { get; set; }
         public decimal Pay_Amount { get; set; }

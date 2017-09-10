@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pos.Repository", "Pos.Repos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pos.Models", "Pos.Models\Pos.Models.csproj", "{FB7698AB-9121-49A9-AB14-40BB911973C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pos.AppServices", "Pos.AppServices\Pos.AppServices.csproj", "{F3FB95CB-D20A-48C0-BB89-AE5473ABFD9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pos.PosBusinessProcessor", "Pos.PosBusinessProcessor\Pos.PosBusinessProcessor.csproj", "{DC3EEA45-72C5-4C98-AA94-C33AFEEF067C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{FB7698AB-9121-49A9-AB14-40BB911973C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB7698AB-9121-49A9-AB14-40BB911973C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB7698AB-9121-49A9-AB14-40BB911973C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3FB95CB-D20A-48C0-BB89-AE5473ABFD9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3FB95CB-D20A-48C0-BB89-AE5473ABFD9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3FB95CB-D20A-48C0-BB89-AE5473ABFD9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3FB95CB-D20A-48C0-BB89-AE5473ABFD9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC3EEA45-72C5-4C98-AA94-C33AFEEF067C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC3EEA45-72C5-4C98-AA94-C33AFEEF067C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC3EEA45-72C5-4C98-AA94-C33AFEEF067C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC3EEA45-72C5-4C98-AA94-C33AFEEF067C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

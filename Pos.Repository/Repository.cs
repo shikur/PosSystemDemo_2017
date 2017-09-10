@@ -43,7 +43,7 @@ namespace Pos.Repository
             var objT = Activator.CreateInstance<T>();
             foreach (var property in typeof(T).GetProperties())
             {
-                if (!record.IsDBNull(record.GetOrdinal(property.Name)))
+                if (record.HasColumn(property.Name) && !record.IsDBNull(record.GetOrdinal(property.Name)))
                     property.SetValue(objT, record[property.Name]);
             }
             return objT;
