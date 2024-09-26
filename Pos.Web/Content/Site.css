@@ -35,4 +35,22 @@ font-style: normal;
     .body-content {
         padding: 0;
     }
+
+     .dynTable {
+            color:white;
+            align-content:flex-start;
+            text-align:start;
+            position:relative;  height: 100%;
+            margin-top:0px auto;
+            vertical-align:top !important;
+           
+           min-height:initial;
+           margin-top:0px;
+
+        }
+
+        .posbgColor {
+            color:#ffffff;
+            background-color:#3276b1
+        }
 }

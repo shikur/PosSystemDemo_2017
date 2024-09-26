@@ -7,7 +7,7 @@
 
     //Create init setting env 
     $("#divreceiptID").hide(); $('#menuPosTitleId').hide();
-    PopulatePosMenu(false, "tblPosMenuID");
+    PopulatePosMenu(false, "tblPosMenuID"); $("#dialog").hide();
     //PosGetItems();
     $('.posbgColor').on('click', 'td', function (e) {
         e.preventDefault();
@@ -209,17 +209,13 @@
 
         });
     }
-   // $("#tblreceiptId").hide();
     
     function PosGetEmployee(employee) {
-        alert("employee method works");
         $.ajax({
             type: "POST",
             dataType: "json",
             url: "RequestHandlers/EmployeeService.svc/GetEmployees",
             success: function (data) {
-                debugger;
-                
                 var dataSource = $.parseJSON(data.d);
                 var table = $('#tblEmployeeId').dataTable({
                     data: dataSource,
@@ -228,6 +224,8 @@
                     paging: false,
                     "showNEntries": false,
                     "bInfo": false,
+                    'bRetrieve': true,
+
                     columns: [
                         { 'data': 'Emp_ID' },
                         { 'data': 'Name' },
@@ -238,31 +236,30 @@
 
                     
                 });
-
+                $("#dialog").show();
                 if (dataSource) {
                     $("#dialog").dialog({
                         title: menuSelected,
                         autoResize: true,
                         modal: true,
-                        width: 'auto'
+                        width: 'auto',
+                        modal: true,
+                        buttons: {
+                            "SUBMIT": function() { 
+                                $("form").submit();
+                            }, 
+                            "CANCEL": function() { 
+                                $(this).dialog("close");
+                            } 
+                        },
+                        close: function() {
+                            $("#dialog").hide();
+                        }
                     });
                     var title = selectedMenu;
 
                 }
 
-                //function GetPosMenu() {
-                //    var table = $('#tblMenuSearchId').dataTable({
-                //        data: dataSource,
-                //        sorting: false,
-                //        paging: false,
-                //        "showNEntries": false,
-                //        "bInfo": false,
-                //        columns: [
-                //            { 'data': 'Description' },
-                //            { 'data': 'Price' }
-                //        ]
-                //    });
-                //}
             }
 
         });
@@ -270,24 +267,36 @@
 
     $('#menuID tbody').on('click', 'tr', function () {
         menuSelected = $(this).closest('tr').find('td:eq(0)').text();
-        debugger;
-        alert("shikur Yennus");
-        if (menuSelected = "Employee")
+        
+        if (menuSelected == "Employee")
         {
             PosGetEmployee(menuSelected)
-
         }
-        else
+        else //For other cases
         {
-
+           var  tableHeaders ="<tb></td>" 
+            $("#dialog").empty();
+            $("#dialog").append('<table id="displayTable" class="display" cellspacing="0" width="100%"><thead><tr>' + tableHeaders + '</tr></thead></table>');
+            //$("#tableDiv").find("table thead tr").append(tableHeaders);  
+            var dataSource = [];
+            $('#displayTable').dataTable({
+                data: dataSource,
+                sorting: false,
+                'bSort': false,
+                paging: false,
+                "showNEntries": false,
+                "bInfo": false,
+                'bRetrieve': true
+            });
+            $("#dialog").dialog({
+                title: menuSelected
+            });
         }
-
-        
-
-        //var columns = Menu(menuSelected);
-        //var dataset = GetPosTableData(menuSelected)
-
-        //GetMenuUI(dataset, columns);
 
     });
+
+    $('#dialog').on('dialogclose', function (event) {
+        $("#dialog").hide();
+    });
+   
 });
